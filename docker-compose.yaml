@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mongodb:
+    image: 'mongo'
+    volumes:
+      - data:/data/db
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: mislav
+    #   MONGO_INITDB_ROOT_PASSWORD: secret
+    #   - MONGO_INITDB_ROOT_USERNAME=mislav
+    env_file:
+      - ./env/mongo.env
+  backend:
+    image: 'goals-node'
+  frontend:
